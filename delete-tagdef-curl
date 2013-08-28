@@ -1,0 +1,24 @@
+START=$(date +%s) 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_1
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_2
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_3
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_4
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_5
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_6
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_7
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_8
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_9
+sleep 1 
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_10
+sleep 1 
+END=$(date +%s) 
+DIFF=$(( $END - $START ))
+echo It took $DIFF seconds

@@ -1,0 +1,12 @@
+START=$(date +%s) 
+curl -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X PUT https://localhost/tagfiler/catalog/13/tagdef/test1?dbtype=text&readpolicy=anonymous&multivalue=1&writepolicy=anonymous 
+sleep 1
+curl -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X PUT https://localhost/tagfiler/catalog/13/tagdef/test2?dbtype=text&readpolicy=anonymous&multivalue=1&writepolicy=anonymous 
+sleep 1
+curl -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X PUT https://localhost/tagfiler/catalog/13/tagdef/test3?dbtype=text&readpolicy=anonymous&multivalue=1&writepolicy=anonymous 
+sleep 1
+curl -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X PUT https://localhost/tagfiler/catalog/13/tagdef/test4?dbtype=text&readpolicy=anonymous&multivalue=1&writepolicy=anonymous 
+sleep 1
+END=$(date +%s) 
+DIFF=$(( $END - $START ))
+echo "It took $DIFF seconds"
