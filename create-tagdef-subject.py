@@ -10,10 +10,11 @@ goauth_token = sys.argv[1]
 catalogid = int(sys.argv[2])
 tagdefstart = int(sys.argv[3])
 tagdefend = int(sys.argv[4])
-subjectstart = int(sys.argv[5])
-subjectend = int(sys.argv[6])
-subjectrange = int(sys.argv[7])
-randmax = int(sys.argv[8])
+tagdefunq = int(sys.argv[5])
+subjectstart = int(sys.argv[6])
+subjectend = int(sys.argv[7])
+subjectrange = int(sys.argv[8])
+randmax = int(sys.argv[9])
 
 tagclient = tagfiler_client.TagfilerClient(goauth_token)
 
@@ -42,7 +43,7 @@ def enum_subjects(st,rng,tst,tend):
         for i in xrange(st,st+rng):
 	   seq = (('test%d' % j) for j in range(tst,tend))
            subject = dict.fromkeys(seq)
-           subject.update({'test0':('%s_%d' % (id_gen_upp(random.randint(0,randmax)),i))})
+           subject.update({('test%d' % tagdefunq):('%s_%d' % (id_gen_upp(random.randint(0,randmax)),i))})
 	   for j in range(tst,tend):
               subject[('test%d' % j)] = '%s' % id_gen_upp(random.randint(0,randmax))
            subjects.append(subject) 
@@ -55,7 +56,7 @@ try:
 except OSError:
     pass
 
-tagclient.create_tagdef(catalogid,'test0', "text", False,True)
+tagclient.create_tagdef(catalogid,'test%d' % (tagdefunq), "text", False,True)
 for i in range(tagdefstart,tagdefend):
     with open("tagdef_time",'a') as f1:
        with Timer(f1):
@@ -68,7 +69,7 @@ print("Tagdef creation finish")
 while (subjectstart < subjectend):
     with open("subject_time",'a') as f2:
        with Timer(f2):
-          tagclient.create_subjects(catalogid, enum_subjects(subjectstart,subjectrange,tagdefstart,tagdefend),'test0')
+          tagclient.create_subjects(catalogid, enum_subjects(subjectstart,subjectrange,tagdefstart,tagdefend),('test%d' % tagdefunq))
     subjectstart = subjectstart +subjectrange
     print("Subject batch creation finish")
     time.sleep(1.0)

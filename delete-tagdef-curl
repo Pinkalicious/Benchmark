@@ -1,23 +1,13 @@
 START=$(date +%s) 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_1
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test0
 sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_2
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1
 sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_3
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test2
 sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_4
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test3
 sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_5
-sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_6
-sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_7
-sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_8
-sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_9
-sleep 1 
-curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test1_10
+curl  -w %{time_connect}#%{time_starttransfer}#%{time_total}\\n -k -H "Authorization: Globus-Goauthtoken $(cat goauth-token)" -X DELETE https://localhost/tagfiler/catalog/13/tagdef/test4
 sleep 1 
 END=$(date +%s) 
 DIFF=$(( $END - $START ))
